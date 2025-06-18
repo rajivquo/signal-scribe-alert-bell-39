@@ -47,7 +47,7 @@ const ControlPanel = ({
   };
 
   return (
-    <div className="bg-card p-4 flex-shrink-0 safe-bottom">
+    <div className="bg-card p-4 pb-8 flex-shrink-0 safe-bottom">
       <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
         <Button
           onClick={handleRingOffClick}

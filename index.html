@@ -11,12 +11,12 @@
     <!-- PWA Meta Tags -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="SignalTracker">
     
     <!-- Android specific -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-status-bar-style" content="default">
     
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -24,15 +24,47 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-navbutton-color" content="#000000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <!-- Capacitor safe area support -->
+    <!-- Enhanced Capacitor safe area support -->
     <style>
+      :root {
+        --safe-area-inset-top: env(safe-area-inset-top, 0);
+        --safe-area-inset-right: env(safe-area-inset-right, 0);
+        --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+        --safe-area-inset-left: env(safe-area-inset-left, 0);
+      }
+
       body {
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #root {
+        width: 100%;
+        height: 100%;
+        padding-top: var(--safe-area-inset-top);
+        padding-bottom: var(--safe-area-inset-bottom);
+        padding-left: var(--safe-area-inset-left);
+        padding-right: var(--safe-area-inset-right);
+        box-sizing: border-box;
+      }
+
+      /* Safe area utility classes */
+      .safe-top { padding-top: var(--safe-area-inset-top); }
+      .safe-bottom { padding-bottom: var(--safe-area-inset-bottom); }
+      .safe-left { padding-left: var(--safe-area-inset-left); }
+      .safe-right { padding-right: var(--safe-area-inset-right); }
+      .safe-x { 
+        padding-left: var(--safe-area-inset-left); 
+        padding-right: var(--safe-area-inset-right); 
+      }
+      .safe-y { 
+        padding-top: var(--safe-area-inset-top); 
+        padding-bottom: var(--safe-area-inset-bottom); 
       }
     </style>
 
